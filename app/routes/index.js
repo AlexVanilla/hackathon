@@ -9,6 +9,9 @@ const authenticate = require("../filters/authenticate")
 const quizApiPrefix = "/api/quizzes"
 const quizRoutes = require("./quiz.routes")(quizApiPrefix)
 
+const usersApiPrefix = "/api/users"
+const usersRoutes = require("./users.routes")(usersApiPrefix)
+
 const path = require("path")
 const contentPath = path.join(__dirname, "../../content")
 
@@ -20,6 +23,7 @@ router.use(authenticate)
 
 // API routes (group routing modules here - no empty lines between)
 router.use(quizApiPrefix, quizRoutes)
+router.use(usersApiPrefix, usersRoutes)
 // router.use('/api/entities', entitiesRoutes)
 // router.use('/api/examples', examplesRoutes)
 

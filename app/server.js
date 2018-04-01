@@ -4,6 +4,7 @@ const dotenv = require('dotenv')
 const bodyParser = require('body-parser')
 const mongo = require('./mongodb')
 const router = require('./routes')
+const cookieParser = require('cookie-parser')
 
 // initialize dotenv
 dotenv.config()
@@ -14,6 +15,8 @@ const port = process.env.PORT || 80
 // get all data/stuff of the body (POST) parameters
 // parse application/json
 app.use(bodyParser.json())
+
+app.use(cookieParser())
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
